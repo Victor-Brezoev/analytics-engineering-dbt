@@ -1,0 +1,15 @@
+
+target/
+dbt_packages/
+logs/
+.env
+# dbt
+target/
+dbt_packages/
+logs/
+
+# DuckDB local database
+*.duckdb
+
+# Raw data files
+data/raw/
