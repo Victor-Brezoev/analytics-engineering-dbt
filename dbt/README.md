@@ -1,15 +1,29 @@
-Welcome to your new dbt project!
+# Analytics Engineering with dbt & DuckDB
 
-### Using the starter project
+A hands-on analytics engineering project built with dbt and DuckDB using the Olist e-commerce dataset.
 
-Try running the following commands:
-- dbt run
-- dbt test
+The goal of this project is to demonstrate how raw data can be transformed into clean, tested, and analytics-ready models following modern analytics engineering practices.
 
+## Tech Stack
 
-### Resources:
-- Learn more about dbt [in the docs](https://docs.getdbt.com/docs/introduction)
-- Check out [Discourse](https://discourse.getdbt.com/) for commonly asked questions and answers
-- Join the [chat](https://community.getdbt.com/) on Slack for live discussions and support
-- Find [dbt events](https://events.getdbt.com) near you
-- Check out [the blog](https://blog.getdbt.com/) for the latest news on dbt's development and best practices
+- dbt Core
+- DuckDB
+- SQL
+- Git & GitHub
+
+## Project Structure
+
+- staging
+- intermediate
+- marts
+- snapshots
+- tests
+- macros
+
+## Current Status
+
+This project is actively being developed. New models, tests, and documentation are added as the project progresses.
+
+## Dataset
+
+Olist Brazilian E-commerce Dataset
