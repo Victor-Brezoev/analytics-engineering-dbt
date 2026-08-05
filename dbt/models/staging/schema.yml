@@ -5,12 +5,105 @@ models:
     description: Staging model for customers
     columns:
       - name: id
-        data_tests: 
+        data_tests:
           - unique
           - not_null
       - name: unique_id
         data_tests:
           - not_null
       - name: city
+        data_tests:
+          - not_null
+
+  - name: stg_orders
+    description: Staging model for orders
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+      - name: customer_id
+        data_tests:
+          - not_null
+
+  - name: stg_order_items
+    description: Staging model for order items
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null
+      - name: item_id
+        data_tests:
+          - not_null
+      - name: product_id
+        data_tests:
+          - not_null
+      - name: seller_id
+        data_tests:
+          - not_null
+
+  - name: stg_products
+    description: Staging model for products
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_sellers
+    description: Staging model for sellers
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+
+  - name: stg_payments
+    description: Staging model for payments
+    columns:
+      - name: order_id
+        data_tests:
+          - not_null
+      - name: payment_sequence
+        data_tests:
+          - not_null
+      - name: payment_type
+        data_tests:
+          - not_null
+
+  - name: stg_reviews
+    description: Staging model for reviews
+    columns:
+      - name: id
+        data_tests:
+          - not_null
+      - name: order_id
+        data_tests:
+          - not_null
+      - name: score
+        data_tests:
+          - not_null
+
+  - name: stg_geolocation
+    description: Staging model for geolocation
+    columns:
+      - name: zip_code
+        data_tests:
+          - not_null
+      - name: latitude
+        data_tests:
+          - not_null
+      - name: longitude
+        data_tests:
+          - not_null
+
+  - name: stg_category_translation
+    description: Staging model for category translation
+    columns:
+      - name: id
+        data_tests:
+          - unique
+          - not_null
+      - name: category_name_english
         data_tests:
           - not_null
