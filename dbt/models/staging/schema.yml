@@ -16,7 +16,7 @@ models:
           - not_null
 
   - name: stg_orders
-    description: Staging model for orders
+    description: "Staging model for orders"
     columns:
       - name: id
         data_tests:
@@ -25,6 +25,24 @@ models:
       - name: customer_id
         data_tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_customers')
+                field: id
+      - name: status
+        description: "{{ doc('order_status') }}"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - approved
+                  - canceled
+                  - created
+                  - delivered
+                  - invoiced
+                  - processing
+                  - shipped
+                  - unavailable
 
   - name: stg_order_items
     description: Staging model for order items
@@ -32,15 +50,27 @@ models:
       - name: order_id
         data_tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_orders')
+                field: id
       - name: item_id
         data_tests:
           - not_null
       - name: product_id
         data_tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_products')
+                field: id
       - name: seller_id
         data_tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_sellers')
+                field: id
 
   - name: stg_products
     description: Staging model for products
@@ -64,6 +94,10 @@ models:
       - name: order_id
         data_tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_orders')
+                field: id
       - name: payment_sequence
         data_tests:
           - not_null
@@ -80,6 +114,10 @@ models:
       - name: order_id
         data_tests:
           - not_null
+          - relationships:
+              arguments:
+                to: ref('stg_orders')
+                field: id
       - name: score
         data_tests:
           - not_null
