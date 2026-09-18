@@ -9,3 +9,20 @@ models:
       - name: order_id 
         data_tests:
           - not_null
+  - name: int_orders_enriched
+    description: >
+      enriched with payment and review info
+      grain: one row per order item.
+    columns:
+      - name: order_id
+        data_tests:
+          - unique
+          - not_null
+
+      - name: customer_id
+        data_tests:
+          - not_null
+
+      - name: status
+        data_tests:
+          - not_null
