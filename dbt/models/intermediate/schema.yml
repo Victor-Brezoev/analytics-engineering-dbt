@@ -1,0 +1,11 @@
+version: 2
+
+models:
+  - name: int_order_items_enriched
+    description: >
+      enriched with product and seller atributes.
+      grain: one row per order item.
+    columns:
+      - name: order_id 
+        data_tests:
+          - not_null
