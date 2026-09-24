@@ -1,4 +1,9 @@
-select order_id, item_id, count(*) as row_count
+select 
+order_id, 
+item_id, 
+count(*) as row_count
 from {{ ref('int_order_items_enriched')}}
-group by order_id, item_id
+group by
+ order_id, 
+ item_id
 having count(*) > 1
