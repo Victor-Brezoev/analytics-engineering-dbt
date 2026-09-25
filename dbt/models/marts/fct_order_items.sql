@@ -12,7 +12,7 @@ final as (
         price,
         freight_value,
         volume_cm3,
-        price + freight_value as item_total_value
+        {{ calculate_item_total('price', 'freight_value') }} as item_total_value
         from order_items
 )
 
