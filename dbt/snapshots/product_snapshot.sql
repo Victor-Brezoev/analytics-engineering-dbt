@@ -1,0 +1,23 @@
+{% snapshot product_snapshot %}
+
+{{ 
+    config(
+        target_schema = 'snapshots',
+        unique_key = 'id',
+        strategy = 'check',
+        check_cols = [
+            'category_name',
+            'name_length',
+            'description_length',
+            'photos_qty',
+            'weight_g',
+            'length_cm',
+            'height_cm',
+            'width_cm'
+        ]
+    )
+     }}
+
+select * from {{ ref( 'stg_products' ) }}
+
+{% endsnapshot %}
