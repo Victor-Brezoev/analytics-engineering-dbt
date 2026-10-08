@@ -11,6 +11,8 @@ final as (
         order_id,
         customer_id,
         status,
+        purchase_timestamp,
+        cast(purchase_timestamp as date) as order_date,
         average_review_score,
         total_payment,
         review_count,

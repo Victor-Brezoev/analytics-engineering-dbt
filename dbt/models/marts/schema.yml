@@ -60,3 +60,37 @@ models:
         data_tests:
           - unique
           - not_null
+
+  - name: business_metrics_orders
+    description: >
+      Daily business metrics aggregated from orders.
+      Grain: one row per order date.
+
+    columns:
+      - name: order_date
+        description: Calendar date associated with the orders.
+        data_tests:
+          - not_null
+
+      - name: total_orders
+        description: Number of orders placed on the order date.
+        data_tests:
+          - not_null
+
+      - name: total_revenue
+        description: Sum of payment amounts for orders placed on the order date.
+
+      - name: average_order_value
+        description: Average payment amount per order on the order date.
+
+      - name: average_delivery_days
+        description: Average number of days taken to deliver orders placed on the order date.
+
+      - name: average_review_score
+        description: Average review score for orders placed on the order date.
+
+      - name: late_orders
+        description: Number of orders delivered after the estimated delivery date.
+
+      - name: orders_not_late
+        description: Number of orders delivered on time or early.
