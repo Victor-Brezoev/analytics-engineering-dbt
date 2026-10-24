@@ -1,5 +1,7 @@
+
 with orders as (
-    select * from {{ ref('fct_orders')}}
+    select *
+    from {{ ref('fct_orders') }}
 ),
 
 final as (
@@ -10,18 +12,22 @@ final as (
         avg(total_payment) as avg_order_value,
         avg(delivery_days) as average_delivery_days,
         avg(average_review_score) as average_review_score,
+
         count(
             case
-                when delivery_delay_days > 1 then 1
+                when delivery_delay_days > 0 then 1
             end
         ) as late_orders,
+
         count(
-                case
-                    when delivery_delay_days <= 0 then 1
-                end
+            case
+                when delivery_delay_days <= 0 then 1
+            end
         ) as orders_not_late
+
     from orders
     group by order_date
 )
 
-select * from final
+select *
+from final
